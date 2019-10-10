@@ -26,13 +26,14 @@ def apply_coupons(cart, coupons)
     
     if cart.key?(c[:item])
       coupon_count += c[:num]
+      if cart[c[:item]][:count] > c[:num]
       hash = {}
       hash[:price] = c[:cost] / c[:num]
       hash[:clearance] = cart[c[:item]][:clearance]
       hash[:count] = coupon_count
       cart["#{c[:item]} W/COUPON"] = hash
 
-      if cart[c[:item]][:count] > c[:num]
+      
         cart[c[:item]][:count] -= c[:num]
       else
         cart[c[:item]][:count] = 0
