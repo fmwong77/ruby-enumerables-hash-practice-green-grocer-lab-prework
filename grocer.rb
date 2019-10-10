@@ -60,7 +60,7 @@ def checkout(cart, coupons)
   total = 0
   
   checkout_cart.each do |grocery, attribute|
-    total += attribute[:price]
+    total += attribute[:price] * attribute[:count]
   end
   total
   
