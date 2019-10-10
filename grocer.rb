@@ -54,10 +54,9 @@ end
 
 def checkout(cart, coupons)
   # no clearance, no coupons
-  # no clearance, no coupons
   checkout_cart = consolidate_cart(cart)
   checkout_cart = apply_coupons(checkout_cart, coupons)
-  checkout_cart = apply_clearance(checkout_cart)
+  # checkout_cart = apply_clearance(checkout_cart)
   total = 0
   
   checkout_cart.each do |grocery, attribute|
